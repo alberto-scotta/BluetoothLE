@@ -180,6 +180,7 @@ namespace winrt::SDKTemplate::DisplayHelpers
                 { 0x2A61, L"PulseOximetryFeatures" },
                 { 0x2A60, L"PulseOximetryPulsatileEvent" },
                 { 0xFFE1, L"SimpleKeyState" },
+                { 0x2AA6, L"CentralAddressResolution" },
             };
 
             auto it = knownCharacteristicIds.find(shortId);
