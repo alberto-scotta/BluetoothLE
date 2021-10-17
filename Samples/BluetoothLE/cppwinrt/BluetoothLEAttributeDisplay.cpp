@@ -29,6 +29,9 @@ namespace winrt::SDKTemplate::DisplayHelpers
     hstring GetServiceName(GattDeviceService const& service)
     {
         uint16_t shortId;
+        // NUS service
+        // 6e400001-b5a3-f393-e0a9-e50e24dcca9e.
+        constexpr guid NUSGuid = { 0x6e400001, 0xb5a3, 0xf393, { 0xe0, 0xa9, 0xe5, 0x0e, 0x24, 0xdc, 0xca, 0x9e } };
 
         guid uuid = service.Uuid();
         if (TryParseSigDefinedUuid(uuid, shortId))
@@ -65,12 +68,22 @@ namespace winrt::SDKTemplate::DisplayHelpers
                 return it->second;
             }
         }
+        else if (uuid == NUSGuid)
+        {
+            return L"NordicUARTService";
+        }
+
         return L"Custom service: " + to_hstring(uuid);
     }
 
     hstring GetCharacteristicName(GattCharacteristic const& characteristic)
     {
         uint16_t shortId;
+        // NUS service
+        // 6e400002-b5a3-f393-e0a9-e50e24dcca9e.
+        constexpr guid RXCharGuid = { 0x6e400002, 0xb5a3, 0xf393, { 0xe0, 0xa9, 0xe5, 0x0e, 0x24, 0xdc, 0xca, 0x9e } };
+        // 6e400003-b5a3-f393-e0a9-e50e24dcca9e.
+        constexpr guid TXCharGuid = { 0x6e400003, 0xb5a3, 0xf393, { 0xe0, 0xa9, 0xe5, 0x0e, 0x24, 0xdc, 0xca, 0x9e } };
 
         guid uuid = characteristic.Uuid();
         if (TryParseSigDefinedUuid(uuid, shortId))
@@ -188,6 +201,14 @@ namespace winrt::SDKTemplate::DisplayHelpers
             {
                 return it->second;
             }
+        }
+        else if (uuid == RXCharGuid)
+        {
+        return L"RXCharacteristic";
+        }
+        else if (uuid == TXCharGuid)
+        {
+        return L"TXCharacteristic";
         }
 
         hstring userDescription = characteristic.UserDescription();
