@@ -5,7 +5,7 @@
   xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
   IgnorableNamespaces="uap mp"
   >
-  <Identity Name="Microsoft.SDKSamples.BluetoothLE.CPP" Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US" Version="1.0.0.0"/>
+  <Identity Name="Microsoft.SDKSamples.BluetoothLE.CPP" Publisher="CN=BluetoothLE" Version="1.0.0.0"/>
   <mp:PhoneIdentity PhoneProductId="9a48c218-5266-4f1f-8ba6-fd549dd957a8" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
   <Properties>
     <DisplayName>BluetoothLE C++/WinRT Sample</DisplayName>
