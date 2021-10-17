@@ -42,7 +42,7 @@ namespace winrt::SDKTemplate::implementation
 
         bool IsValidOperator(CalculatorOperators op)
         {
-            return op >= CalculatorOperators::Add && op < CalculatorOperators::Divide;
+            return op >= CalculatorOperators::Add && op <= CalculatorOperators::Divide;
         }
 
         SDKTemplate::MainPage rootPage{ MainPage::Current() };
@@ -53,7 +53,7 @@ namespace winrt::SDKTemplate::implementation
         Windows::Devices::Bluetooth::GenericAttributeProfile::GattLocalCharacteristic resultCharacteristic{ nullptr };
         int operand1Received = 0;
         int operand2Received = 0;
-        CalculatorOperators operatorReceived;
+        CalculatorOperators operatorReceived = CalculatorOperators::Add;
         int resultVal = 0;
         bool peripheralSupported = false;
 
