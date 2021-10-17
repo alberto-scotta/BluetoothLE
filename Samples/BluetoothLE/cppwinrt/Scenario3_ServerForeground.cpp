@@ -215,11 +215,20 @@ namespace winrt::SDKTemplate::implementation
             co_return false;
         }
 
+        // Add presentation format - 32-bit unsigned integer, with exponent 0, the unit is unitless, with no company description
+        GattPresentationFormat intFormat = GattPresentationFormat::FromParts(
+            GattPresentationFormatTypes::UInt32(),
+            PresentationFormats::Exponent,
+            static_cast<uint16_t>(PresentationFormats::Units::Unitless),
+            static_cast<uint8_t>(PresentationFormats::NamespaceId::BluetoothSigAssignedNumber),
+            PresentationFormats::Description);
+
         // BT_Code: Initializes custom local parameters w/ properties, protection levels as well as common descriptors like User Description. 
         GattLocalCharacteristicParameters gattOperandParameters;
         gattOperandParameters.CharacteristicProperties(GattCharacteristicProperties::Write | GattCharacteristicProperties::WriteWithoutResponse);
         gattOperandParameters.WriteProtectionLevel(GattProtectionLevel::Plain);
         gattOperandParameters.UserDescription(L"Operand Characteristic");
+        gattOperandParameters.PresentationFormats().Append(intFormat);
 
         GattLocalCharacteristicResult result = co_await serviceProvider.Service().CreateCharacteristicAsync(Constants::Op1CharacteristicUuid, gattOperandParameters);
         if (result.Error() == BluetoothError::Success)
@@ -252,6 +261,7 @@ namespace winrt::SDKTemplate::implementation
         gattOperatorParameters.CharacteristicProperties(GattCharacteristicProperties::Write | GattCharacteristicProperties::WriteWithoutResponse);
         gattOperatorParameters.WriteProtectionLevel(GattProtectionLevel::Plain);
         gattOperatorParameters.UserDescription(L"Operator Characteristic");
+        gattOperatorParameters.PresentationFormats().Append(intFormat);
 
         result = co_await serviceProvider.Service().CreateCharacteristicAsync(Constants::OperatorCharacteristicUuid, gattOperatorParameters);
         if (result.Error() == BluetoothError::Success)
@@ -271,15 +281,6 @@ namespace winrt::SDKTemplate::implementation
         gattResultParameters.CharacteristicProperties(GattCharacteristicProperties::Read | GattCharacteristicProperties::Notify);
         gattResultParameters.WriteProtectionLevel(GattProtectionLevel::Plain);
         gattResultParameters.UserDescription(L"Result  Characteristic");
-
-        // Add presentation format - 32-bit unsigned integer, with exponent 0, the unit is unitless, with no company description
-        GattPresentationFormat intFormat = GattPresentationFormat::FromParts(
-            GattPresentationFormatTypes::UInt32(),
-            PresentationFormats::Exponent,
-            static_cast<uint16_t>(PresentationFormats::Units::Unitless),
-            static_cast<uint8_t>(PresentationFormats::NamespaceId::BluetoothSigAssignedNumber),
-            PresentationFormats::Description);
-
         gattResultParameters.PresentationFormats().Append(intFormat);
 
         result = co_await serviceProvider.Service().CreateCharacteristicAsync(Constants::ResultCharacteristicUuid, gattResultParameters);
