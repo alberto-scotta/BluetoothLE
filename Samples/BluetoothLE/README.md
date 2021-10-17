@@ -1,38 +1,6 @@
----
-page_type: sample
-languages:
-- csharp
-- cpp
-- cppwinrt
-products:
-- windows
-- windows-uwp
-urlFragment: BluetoothLE
-extendedZipContent:
-- path: SharedContent
-  target: SharedContent
-- path: LICENSE
-  target: LICENSE
-description: "Shows how to use the Windows Bluetooth LE APIs to act either as a BLE client or server."
----
-
-<!---
-  category: DevicesSensorsAndPower
-  samplefwlink: http://go.microsoft.com/fwlink/p/?LinkId=820786
--->
-
 # Bluetooth Low Energy sample
 
 Shows how to use the Windows Bluetooth LE APIs to act either as a BLE client or server. 
-
-> **Note:** This sample is part of a large collection of UWP feature samples. 
-> You can download this sample as a standalone ZIP file
-> [from docs.microsoft.com](https://docs.microsoft.com/samples/microsoft/windows-universal-samples/bluetoothle/),
-> or you can download the entire collection as a single
-> [ZIP file](https://github.com/Microsoft/Windows-universal-samples/archive/master.zip), but be 
-> sure to unzip everything to access shared dependencies. For more info on working with the ZIP file, 
-> the samples collection, and GitHub, see [Get the UWP samples from GitHub](https://aka.ms/ovu2uq). 
-> For more samples, see the [Samples portal](https://aka.ms/winsamples) on the Windows Dev Center. 
 
 ## Client
 
@@ -69,16 +37,6 @@ To obtain information about Windows 10 development, go to the [Windows Dev Cente
 
 To obtain information about Microsoft Visual Studio and the tools for developing Windows apps, go to [Visual Studio](http://go.microsoft.com/fwlink/?LinkID=532422)
 
-## Related topics
-
-### Samples
-
-[Bluetooth Rfcomm](../BluetoothRfcommChat)
-
-[Bluetooth Advertisement](../BluetoothAdvertisment)
-
-[Device Enumeration and Pairing](../DeviceEnumerationAndPairing)
-
 ### Reference
 
 [Windows.Devices.Bluetooth namespace](https://msdn.microsoft.com/library/windows/apps/windows.devices.bluetooth.aspx)
@@ -111,10 +69,8 @@ To obtain information about Microsoft Visual Studio and the tools for developing
 
 ## Build the sample
 
-1. If you download the samples ZIP, be sure to unzip the entire archive, not just the folder with the sample you want to build. 
-2. Start Microsoft Visual Studio and select **File** \> **Open** \> **Project/Solution**.
-3. Starting in the folder where you unzipped the samples, go to the Samples subfolder, then the subfolder for this specific sample, then the subfolder for your preferred language (C++, C#, or JavaScript). Double-click the Visual Studio Solution (.sln) file.
-4. Press Ctrl+Shift+B, or select **Build** \> **Build Solution**.
+1. Double-click the Visual Studio Solution (.sln) file.
+2. Press Ctrl+Shift+B, or select **Build** \> **Build Solution**.
 
 ## Run the sample
 
