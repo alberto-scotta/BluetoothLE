@@ -649,6 +649,11 @@ namespace winrt::SDKTemplate::implementation
                 {
                     return L"Unknown format";
                 }
+                catch (hresult_error& ex)
+                {
+                    // Generic error
+                    return ex.message();
+                }
             }
         }
         else
