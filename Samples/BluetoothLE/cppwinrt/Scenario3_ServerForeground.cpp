@@ -249,9 +249,9 @@ namespace winrt::SDKTemplate::implementation
 
         // Create the operator characteristic.
         GattLocalCharacteristicParameters gattOperatorParameters;
-        gattOperandParameters.CharacteristicProperties(GattCharacteristicProperties::Write | GattCharacteristicProperties::WriteWithoutResponse);
-        gattOperandParameters.WriteProtectionLevel(GattProtectionLevel::Plain);
-        gattOperandParameters.UserDescription(L"Operator Characteristic");
+        gattOperatorParameters.CharacteristicProperties(GattCharacteristicProperties::Write | GattCharacteristicProperties::WriteWithoutResponse);
+        gattOperatorParameters.WriteProtectionLevel(GattProtectionLevel::Plain);
+        gattOperatorParameters.UserDescription(L"Operator Characteristic");
 
         result = co_await serviceProvider.Service().CreateCharacteristicAsync(Constants::OperatorCharacteristicUuid, gattOperatorParameters);
         if (result.Error() == BluetoothError::Success)
