@@ -624,6 +624,7 @@ namespace winrt::SDKTemplate::implementation
                 }
                 return L"Invalid response from calc server";
             }
+/*
             // No guarantees on if a characteristic is registered for notifications.
             else if (registeredCharacteristic != nullptr)
             {
@@ -638,6 +639,7 @@ namespace winrt::SDKTemplate::implementation
                     return L"Invalid response from calc server";
                 }
             }
+*/
             else
             {
                 try
